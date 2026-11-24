@@ -1,0 +1,581 @@
+{
+  "is_demo_seeded": false,
+  "environment_mode": "PRODUCTION_CLEAN",
+  "roles": [
+    {
+      "id": "role-owner",
+      "name": "OWNER",
+      "description": "Super Admin with complete access to factory, finances, AI, and live GPS",
+      "permissions": [
+        "dashboard:view_owner",
+        "dashboard:view_production",
+        "users:manage",
+        "production:manage",
+        "production:verify",
+        "raw_materials:manage",
+        "finished_goods:manage",
+        "dealers:manage",
+        "orders:create",
+        "orders:approve",
+        "orders:dispatch",
+        "payments:record",
+        "payments:reverse",
+        "expenses:create",
+        "expenses:approve",
+        "accounting:view_pnl",
+        "machines:manage",
+        "gps:track_self",
+        "gps:view_all_bookers",
+        "voice:execute_transactions",
+        "ai:query_business",
+        "reports:export"
+      ],
+      "created_at": "2026-10-30T14:43:19.558Z"
+    },
+    {
+      "id": "role-prod",
+      "name": "PRODUCTION_MANAGER",
+      "description": "Manages production batches, raw materials, BOM requirements, and machine issues",
+      "permissions": [
+        "dashboard:view_production",
+        "production:manage",
+        "production:verify",
+        "raw_materials:manage",
+        "finished_goods:manage",
+        "machines:manage",
+        "expenses:create"
+      ],
+      "created_at": "2026-10-30T14:43:19.558Z"
+    },
+    {
+      "id": "role-booker",
+      "name": "BOOKER",
+      "description": "Field salesman managing assigned areas, shops, orders, collections, and GPS tracking",
+      "permissions": [
+        "orders:create",
+        "payments:record",
+        "gps:track_self"
+      ],
+      "created_at": "2026-10-30T14:43:19.558Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-owner-1",
+      "email": "owner@fruityfun.pk",
+      "full_name": "Sikandar Raja",
+      "phone": "+92-300-8401122",
+      "role": "OWNER",
+      "is_active": true,
+      "working_hours_start": "08:00",
+      "working_hours_end": "22:00",
+      "duty_status": "ON_DUTY",
+      "last_login_at": "2026-11-06T13:08:19.558Z",
+      "created_at": "2026-10-30T14:43:19.558Z",
+      "updated_at": "2026-11-06T13:08:19.558Z"
+    },
+    {
+      "id": "user-prod-1",
+      "email": "production@fruityfun.pk",
+      "full_name": "Salman Nadeem",
+      "phone": "+92-321-4509988",
+      "role": "PRODUCTION_MANAGER",
+      "is_active": true,
+      "working_hours_start": "07:00",
+      "working_hours_end": "19:00",
+      "duty_status": "ON_DUTY",
+      "last_login_at": "2026-11-06T12:38:19.558Z",
+      "created_at": "2026-10-30T14:43:19.558Z",
+      "updated_at": "2026-11-06T12:38:19.558Z"
+    },
+    {
+      "id": "user-booker-1",
+      "email": "usman.booker@fruityfun.pk",
+      "full_name": "Usman Tariq",
+      "phone": "+92-333-4112233",
+      "role": "BOOKER",
+      "is_active": true,
+      "assigned_area_id": "area-gulberg",
+      "working_hours_start": "08:30",
+      "working_hours_end": "18:30",
+      "duty_status": "ON_DUTY",
+      "last_login_at": "2026-11-06T13:18:19.558Z",
+      "created_at": "2026-10-30T14:43:19.558Z",
+      "updated_at": "2026-11-06T13:18:19.558Z"
+    },
+    {
+      "id": "user-booker-2",
+      "email": "kamran.booker@fruityfun.pk",
+      "full_name": "Kamran Raza",
+      "phone": "+92-301-7788990",
+      "role": "BOOKER",
+      "is_active": true,
+      "assigned_area_id": "area-johar",
+      "working_hours_start": "08:30",
+      "working_hours_end": "18:30",
+      "duty_status": "ON_DUTY",
+      "last_login_at": "2026-11-06T13:11:19.558Z",
+      "created_at": "2026-10-30T14:43:19.558Z",
+      "updated_at": "2026-11-06T13:11:19.558Z"
+    }
+  ],
+  "flavours": [
+    {
+      "id": "flv-mango",
+      "name": "Mango",
+      "code": "MNG",
+      "color_hex": "#F59E0B",
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "flv-orange",
+      "name": "Orange",
+      "code": "ORG",
+      "color_hex": "#F97316",
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "flv-apple",
+      "name": "Apple",
+      "code": "APL",
+      "color_hex": "#EF4444",
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "flv-guava",
+      "name": "Guava",
+      "code": "GVA",
+      "color_hex": "#10B981",
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "flv-mixed",
+      "name": "Mixed Fruit",
+      "code": "MXF",
+      "color_hex": "#8B5CF6",
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "bottle_sizes": [
+    {
+      "id": "size-250",
+      "label": "250ml",
+      "volume_ml": 250,
+      "is_custom": false,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "size-500",
+      "label": "500ml",
+      "volume_ml": 500,
+      "is_custom": false,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "size-1000",
+      "label": "1L",
+      "volume_ml": 1000,
+      "is_custom": false,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "packaging_types": [
+    {
+      "id": "pkg-pet24",
+      "name": "PET Bottle Carton (24x)",
+      "units_per_carton": 24,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "pkg-pet12",
+      "name": "PET Bottle Carton (12x)",
+      "units_per_carton": 12,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "pkg-fam6",
+      "name": "Family Pack Carton (6x)",
+      "units_per_carton": 6,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-mango-250",
+      "sku": "FF-MNG-250",
+      "name": "Fruity Fun Mango Nectar 250ml",
+      "flavour_id": "flv-mango",
+      "flavour_name": "Mango",
+      "bottle_size_id": "size-250",
+      "bottle_size_label": "250ml",
+      "packaging_type_id": "pkg-pet24",
+      "packaging_type_name": "PET Bottle Carton (24x)",
+      "units_per_carton": 24,
+      "wholesale_price_per_carton": 1320,
+      "retail_price_per_unit": 65,
+      "standard_cost_per_carton": 910,
+      "min_stock_cartons": 100,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "prod-orange-500",
+      "sku": "FF-ORG-500",
+      "name": "Fruity Fun Orange Citrus 500ml",
+      "flavour_id": "flv-orange",
+      "flavour_name": "Orange",
+      "bottle_size_id": "size-500",
+      "bottle_size_label": "500ml",
+      "packaging_type_id": "pkg-pet12",
+      "packaging_type_name": "PET Bottle Carton (12x)",
+      "units_per_carton": 12,
+      "wholesale_price_per_carton": 1200,
+      "retail_price_per_unit": 120,
+      "standard_cost_per_carton": 830,
+      "min_stock_cartons": 80,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "prod-apple-1000",
+      "sku": "FF-APL-1000",
+      "name": "Fruity Fun Clear Apple 1L",
+      "flavour_id": "flv-apple",
+      "flavour_name": "Apple",
+      "bottle_size_id": "size-1000",
+      "bottle_size_label": "1L",
+      "packaging_type_id": "pkg-fam6",
+      "packaging_type_name": "Family Pack Carton (6x)",
+      "units_per_carton": 6,
+      "wholesale_price_per_carton": 1140,
+      "retail_price_per_unit": 220,
+      "standard_cost_per_carton": 790,
+      "min_stock_cartons": 60,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "prod-guava-250",
+      "sku": "FF-GVA-250",
+      "name": "Fruity Fun Pink Guava 250ml",
+      "flavour_id": "flv-guava",
+      "flavour_name": "Guava",
+      "bottle_size_id": "size-250",
+      "bottle_size_label": "250ml",
+      "packaging_type_id": "pkg-pet24",
+      "packaging_type_name": "PET Bottle Carton (24x)",
+      "units_per_carton": 24,
+      "wholesale_price_per_carton": 1280,
+      "retail_price_per_unit": 65,
+      "standard_cost_per_carton": 880,
+      "min_stock_cartons": 75,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "prod-mixed-500",
+      "sku": "FF-MXF-500",
+      "name": "Fruity Fun Mixed Fruit Punch 500ml",
+      "flavour_id": "flv-mixed",
+      "flavour_name": "Mixed Fruit",
+      "bottle_size_id": "size-500",
+      "bottle_size_label": "500ml",
+      "packaging_type_id": "pkg-pet12",
+      "packaging_type_name": "PET Bottle Carton (12x)",
+      "units_per_carton": 12,
+      "wholesale_price_per_carton": 1260,
+      "retail_price_per_unit": 125,
+      "standard_cost_per_carton": 870,
+      "min_stock_cartons": 70,
+      "is_active": true,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "suppliers": [],
+  "raw_materials": [],
+  "purchases": [],
+  "material_purchase_receipts": [],
+  "stock_ledger": [],
+  "recipes": [
+    {
+      "id": "rcp-mango-250",
+      "product_id": "prod-mango-250",
+      "product_name": "Fruity Fun Mango Nectar 250ml",
+      "version": "v2.1 (24x250ml = 6 Liters)",
+      "yield_cartons": 1,
+      "notes": "Rich Chaunsa pulp formulation (22% pulp solids)",
+      "updated_at": "2026-11-03T02:03:19.558Z",
+      "items": [
+        {
+          "raw_material_id": "rm-mango-pulp",
+          "raw_material_name": "Chaunsa Mango Pulp Concentrate",
+          "unit": "kg",
+          "quantity_per_carton": 0.85,
+          "wastage_allowance_pct": 1.5
+        },
+        {
+          "raw_material_id": "rm-sugar",
+          "raw_material_name": "Refined Food Grade Sugar",
+          "unit": "kg",
+          "quantity_per_carton": 0.72,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-water",
+          "raw_material_name": "RO Treated Mineral Water",
+          "unit": "liter",
+          "quantity_per_carton": 4.6,
+          "wastage_allowance_pct": 2
+        },
+        {
+          "raw_material_id": "rm-citric",
+          "raw_material_name": "Citric Acid & Sodium Benzoate Blend",
+          "unit": "kg",
+          "quantity_per_carton": 0.025,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-bottle-250",
+          "raw_material_name": "250ml PET Bottle Preform Blown",
+          "unit": "piece",
+          "quantity_per_carton": 24,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-caps",
+          "raw_material_name": "28mm Tamper-Evident Screw Caps",
+          "unit": "piece",
+          "quantity_per_carton": 24,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-labels",
+          "raw_material_name": "BOPP Shrink Sleeve Labels",
+          "unit": "piece",
+          "quantity_per_carton": 24,
+          "wastage_allowance_pct": 1.5
+        },
+        {
+          "raw_material_id": "rm-carton-box",
+          "raw_material_name": "5-Ply Corrugated Master Carton & Shrink Film",
+          "unit": "carton",
+          "quantity_per_carton": 1,
+          "wastage_allowance_pct": 0.5
+        }
+      ]
+    },
+    {
+      "id": "rcp-orange-500",
+      "product_id": "prod-orange-500",
+      "product_name": "Fruity Fun Orange Citrus 500ml",
+      "version": "v1.8 (12x500ml = 6 Liters)",
+      "yield_cartons": 1,
+      "notes": "Kinnow citrus tangy blend with higher acidity balance",
+      "updated_at": "2026-11-03T02:03:19.558Z",
+      "items": [
+        {
+          "raw_material_id": "rm-orange-conc",
+          "raw_material_name": "Kinnow Orange Concentrate",
+          "unit": "kg",
+          "quantity_per_carton": 0.65,
+          "wastage_allowance_pct": 1.5
+        },
+        {
+          "raw_material_id": "rm-sugar",
+          "raw_material_name": "Refined Food Grade Sugar",
+          "unit": "kg",
+          "quantity_per_carton": 0.78,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-water",
+          "raw_material_name": "RO Treated Mineral Water",
+          "unit": "liter",
+          "quantity_per_carton": 4.8,
+          "wastage_allowance_pct": 2
+        },
+        {
+          "raw_material_id": "rm-citric",
+          "raw_material_name": "Citric Acid & Sodium Benzoate Blend",
+          "unit": "kg",
+          "quantity_per_carton": 0.035,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-bottle-500",
+          "raw_material_name": "500ml PET Bottle Preform Blown",
+          "unit": "piece",
+          "quantity_per_carton": 12,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-caps",
+          "raw_material_name": "28mm Tamper-Evident Screw Caps",
+          "unit": "piece",
+          "quantity_per_carton": 12,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-labels",
+          "raw_material_name": "BOPP Shrink Sleeve Labels",
+          "unit": "piece",
+          "quantity_per_carton": 12,
+          "wastage_allowance_pct": 1.5
+        },
+        {
+          "raw_material_id": "rm-carton-box",
+          "raw_material_name": "5-Ply Corrugated Master Carton & Shrink Film",
+          "unit": "carton",
+          "quantity_per_carton": 1,
+          "wastage_allowance_pct": 0.5
+        }
+      ]
+    },
+    {
+      "id": "rcp-apple-1000",
+      "product_id": "prod-apple-1000",
+      "product_name": "Fruity Fun Clear Apple 1L",
+      "version": "v1.4 (6x1L = 6 Liters)",
+      "yield_cartons": 1,
+      "notes": "Clarified apple nectar family pack",
+      "updated_at": "2026-11-03T02:03:19.558Z",
+      "items": [
+        {
+          "raw_material_id": "rm-apple-conc",
+          "raw_material_name": "Clear Apple Juice Concentrate",
+          "unit": "kg",
+          "quantity_per_carton": 0.7,
+          "wastage_allowance_pct": 1.2
+        },
+        {
+          "raw_material_id": "rm-sugar",
+          "raw_material_name": "Refined Food Grade Sugar",
+          "unit": "kg",
+          "quantity_per_carton": 0.65,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-water",
+          "raw_material_name": "RO Treated Mineral Water",
+          "unit": "liter",
+          "quantity_per_carton": 4.9,
+          "wastage_allowance_pct": 2
+        },
+        {
+          "raw_material_id": "rm-citric",
+          "raw_material_name": "Citric Acid & Sodium Benzoate Blend",
+          "unit": "kg",
+          "quantity_per_carton": 0.02,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-bottle-1000",
+          "raw_material_name": "1L Family PET Bottle",
+          "unit": "piece",
+          "quantity_per_carton": 6,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-caps",
+          "raw_material_name": "28mm Tamper-Evident Screw Caps",
+          "unit": "piece",
+          "quantity_per_carton": 6,
+          "wastage_allowance_pct": 1
+        },
+        {
+          "raw_material_id": "rm-labels",
+          "raw_material_name": "BOPP Shrink Sleeve Labels",
+          "unit": "piece",
+          "quantity_per_carton": 6,
+          "wastage_allowance_pct": 1.5
+        },
+        {
+          "raw_material_id": "rm-carton-box",
+          "raw_material_name": "5-Ply Corrugated Master Carton & Shrink Film",
+          "unit": "carton",
+          "quantity_per_carton": 1,
+          "wastage_allowance_pct": 0.5
+        }
+      ]
+    }
+  ],
+  "machines": [
+    {
+      "id": "mach-1",
+      "machine_number": "LINE-A-FILL-01",
+      "name": "Rotary Hot-Fill Monoblock Filler (24-Head)",
+      "line_section": "Filling & Capping Line A",
+      "status": "Operational",
+      "last_serviced_date": "2026-10-31",
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "mach-2",
+      "machine_number": "LINE-B-PAST-02",
+      "name": "Tubular UHT Pasteurizer & Homogenizer",
+      "line_section": "Blending & Thermal Processing",
+      "status": "Operational",
+      "last_serviced_date": "2026-11-03",
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "mach-3",
+      "machine_number": "LINE-C-SHRK-03",
+      "name": "Steam Tunnel Sleeve Labeler & Shrink Wrapper",
+      "line_section": "Packaging & Carton Line",
+      "status": "Operational",
+      "last_serviced_date": "2026-11-05",
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "maintenance_records": [],
+  "production_batches": [],
+  "finished_goods": [],
+  "inventory_movements": [],
+  "dealer_areas": [
+    {
+      "id": "area-gulberg",
+      "name": "Gulberg & Liberty Zone",
+      "city": "Lahore",
+      "assigned_booker_id": "user-booker-1",
+      "assigned_booker_name": "Usman Tariq",
+      "shop_count": 0,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "area-johar",
+      "name": "Johar Town & Model Town",
+      "city": "Lahore",
+      "assigned_booker_id": "user-booker-2",
+      "assigned_booker_name": "Kamran Raza",
+      "shop_count": 0,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    },
+    {
+      "id": "area-dha",
+      "name": "DHA & Cantt Commercial",
+      "city": "Lahore",
+      "assigned_booker_id": "user-booker-1",
+      "assigned_booker_name": "Usman Tariq",
+      "shop_count": 0,
+      "created_at": "2026-10-31T07:23:19.558Z"
+    }
+  ],
+  "dealers": [],
+  "dealer_ledger": [],
+  "orders": [],
+  "payments": [],
+  "expenses": [],
+  "location_points": [],
+  "shop_visits": [],
+  "notifications": [],
+  "audit_logs": []
+}
